@@ -1,4 +1,4 @@
-# LocalGro – MERN Supply Chain Management System
+# LocalGro
 
 ## Project Overview
 LocalGro is a web-based supply chain and warehouse management system designed to support the jackfruit processing and distribution industry in Sri Lanka.  
