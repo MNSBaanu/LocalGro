@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SidebarLayout({ children }) {
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -9,24 +11,42 @@ function SidebarLayout({ children }) {
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
-          <button className="w-full text-left px-4 py-2 rounded hover:bg-green-600">
+          <Link
+            to="/dashboard"
+            className="block px-4 py-2 rounded hover:bg-green-600"
+          >
             Dashboard
-          </button>
-          <button className="w-full text-left px-4 py-2 rounded hover:bg-green-600">
+          </Link>
+
+          <Link
+            to="/inventory"
+            className="block px-4 py-2 rounded hover:bg-green-600"
+          >
             Inventory
-          </button>
-          <button className="w-full text-left px-4 py-2 rounded hover:bg-green-600">
+          </Link>
+
+          <Link
+            to="/orders"
+            className="block px-4 py-2 rounded hover:bg-green-600"
+          >
             Orders
-          </button>
-          <button className="w-full text-left px-4 py-2 rounded hover:bg-green-600">
+          </Link>
+
+          <Link
+            to="/deliveries"
+            className="block px-4 py-2 rounded hover:bg-green-600"
+          >
             Deliveries
-          </button>
+          </Link>
         </nav>
 
         <div className="p-4 border-t border-green-600">
-          <button className="w-full text-left px-4 py-2 rounded hover:bg-green-600">
+          <Link
+            to="/login"
+            className="block px-4 py-2 rounded hover:bg-green-600"
+          >
             Logout
-          </button>
+          </Link>
         </div>
       </aside>
 
