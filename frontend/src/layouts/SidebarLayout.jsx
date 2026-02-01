@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { sidebarMenu } from "../components/sidebarMenu";
 
 function SidebarLayout({ children }) {
   const { user, logout } = useAuth();
@@ -29,22 +30,18 @@ function SidebarLayout({ children }) {
 
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2">
-          <Link to="/dashboard" className="block px-4 py-2 rounded hover:bg-green-600">
-            Dashboard
-          </Link>
-
-          <Link to="/inventory" className="block px-4 py-2 rounded hover:bg-green-600">
-            Inventory
-          </Link>
-
-          <Link to="/orders" className="block px-4 py-2 rounded hover:bg-green-600">
-            Orders
-          </Link>
-
-          <Link to="/deliveries" className="block px-4 py-2 rounded hover:bg-green-600">
-            Deliveries
-          </Link>
+            {user &&
+                sidebarMenu[user.role]?.map((item) => (
+                <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block px-4 py-2 rounded hover:bg-green-600"
+                >
+                    {item.label}
+                </Link>
+                ))}
         </nav>
+
 
         {/* Logout */}
         <div className="p-4 border-t border-green-600">

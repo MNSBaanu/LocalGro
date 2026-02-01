@@ -8,7 +8,7 @@ function Login() {
   const handleLogin = () => {
     login({
       name: "Admin User",
-      role: "admin",
+      role: "delivery",
     });
 
     navigate("/dashboard");
