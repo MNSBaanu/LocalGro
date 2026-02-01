@@ -1,12 +1,58 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Login from "./pages/auth/Login";
+import Dashboard from "./pages/admin/Dashboard";
+import Inventory from "./pages/warehouse/Inventory";
+import Deliveries from "./pages/delivery/Deliveries";
+import Orders from "./pages/finance/Orders";
+
 import AdminLayout from "./layouts/AdminLayout";
 
 function App() {
   return (
-    <AdminLayout>
-      <h1 className="text-2xl font-semibold">
-        Admin Dashboard
-      </h1>
-    </AdminLayout>
+    <BrowserRouter>
+      <Routes>
+        {/* Public Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Routes (layout wrapped) */}
+        <Route
+          path="/dashboard"
+          element={
+            <AdminLayout>
+              <Dashboard />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/inventory"
+          element={
+            <AdminLayout>
+              <Inventory />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/orders"
+          element={
+            <AdminLayout>
+              <Orders />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/deliveries"
+          element={
+            <AdminLayout>
+              <Deliveries />
+            </AdminLayout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
