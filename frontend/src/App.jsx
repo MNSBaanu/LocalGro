@@ -7,6 +7,7 @@ import Deliveries from "./pages/delivery/Deliveries";
 import Orders from "./pages/finance/Orders";
 
 import AdminLayout from "./layouts/AdminLayout";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
@@ -15,40 +16,48 @@ function App() {
         {/* Public Route */}
         <Route path="/login" element={<Login />} />
 
-        {/* Protected Routes (layout wrapped) */}
+        {/* Protected Routes */}
         <Route
           path="/dashboard"
           element={
-            <AdminLayout>
-              <Dashboard />
-            </AdminLayout>
+            <ProtectedRoute>
+              <AdminLayout>
+                <Dashboard />
+              </AdminLayout>
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/inventory"
           element={
-            <AdminLayout>
-              <Inventory />
-            </AdminLayout>
+            <ProtectedRoute>
+              <AdminLayout>
+                <Inventory />
+              </AdminLayout>
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/orders"
           element={
-            <AdminLayout>
-              <Orders />
-            </AdminLayout>
+            <ProtectedRoute>
+              <AdminLayout>
+                <Orders />
+              </AdminLayout>
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/deliveries"
           element={
-            <AdminLayout>
-              <Deliveries />
-            </AdminLayout>
+            <ProtectedRoute>
+              <AdminLayout>
+                <Deliveries />
+              </AdminLayout>
+            </ProtectedRoute>
           }
         />
       </Routes>
