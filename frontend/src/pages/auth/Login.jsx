@@ -7,8 +7,8 @@ function Login() {
 
   const handleLogin = () => {
     login({
-      name: "Admin User",
-      role: "admin",
+      name: "Customer User",
+      role: "customer",
     });
 
     navigate("/dashboard");
@@ -20,7 +20,7 @@ function Login() {
         onClick={handleLogin}
         className="px-6 py-3 bg-green-700 text-white rounded"
       >
-        Login as Admin
+        Login as Customer
       </button>
     </div>
   );

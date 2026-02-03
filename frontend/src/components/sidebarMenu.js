@@ -14,8 +14,8 @@ export const sidebarMenu = {
     { label: "Dashboard", path: "/dashboard" },
     { label: "Deliveries", path: "/deliveries" },
   ],
-  finance: [
+  customer: [
     { label: "Dashboard", path: "/dashboard" },
-    { label: "Orders", path: "/orders" },
+    { label: "My Orders", path: "/my-orders" },
   ],
 };
