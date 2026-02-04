@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/auth/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -15,6 +15,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Redirect root to login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        
         {/* Public */}
         <Route path="/login" element={<Login />} />
 
