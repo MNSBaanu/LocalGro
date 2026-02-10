@@ -1,7 +1,7 @@
 # LocalGro
 
 ## Project Overview
-LocalGro is a web-based supply chain and warehouse management system designed to support the jackfruit processing and distribution industry in Sri Lanka.  
+LocalGro is a supply chain and warehouse management system designed to support the jackfruit processing and distribution industry in Sri Lanka.  
 The system integrates inventory management, order processing, delivery tracking, and basic financial operations into a single centralized platform.
 
 This project is developed using the **MERN stack** and follows an **Agile, incremental development approach**, starting with a Minimum Viable Product (MVP).
