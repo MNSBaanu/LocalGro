@@ -157,86 +157,90 @@ function Inventory() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900">Inventory Management</h1>
+        <div>
+          <h1 className="text-3xl font-bold text-slate-900">Inventory Management</h1>
+          <p className="text-slate-600 mt-1">Manage your supply chain inventory</p>
+        </div>
         <button
           onClick={resetForm}
-          className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors"
+          className="px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors shadow-md"
         >
-          Add New Item
+          + Add New Item
         </button>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
           <div className="flex items-center">
-            <div className="bg-blue-500 rounded-full p-3 mr-4">
+            <div className="bg-blue-500 rounded-lg p-3 mr-4">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Total Items</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.totalItems}</p>
+              <p className="text-sm font-medium text-slate-600">Total Items</p>
+              <p className="text-2xl font-bold text-slate-900">{stats.totalItems}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
           <div className="flex items-center">
-            <div className="bg-green-500 rounded-full p-3 mr-4">
+            <div className="bg-green-500 rounded-lg p-3 mr-4">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Total Value</p>
-              <p className="text-2xl font-bold text-gray-900">LKR {stats.totalValue.toLocaleString()}</p>
+              <p className="text-sm font-medium text-slate-600">Total Value</p>
+              <p className="text-2xl font-bold text-slate-900">LKR {stats.totalValue.toLocaleString()}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
           <div className="flex items-center">
-            <div className="bg-red-500 rounded-full p-3 mr-4">
+            <div className="bg-red-500 rounded-lg p-3 mr-4">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Low Stock</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.lowStockItems}</p>
+              <p className="text-sm font-medium text-slate-600">Low Stock</p>
+              <p className="text-2xl font-bold text-slate-900">{stats.lowStockItems}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
           <div className="flex items-center">
-            <div className="bg-purple-500 rounded-full p-3 mr-4">
+            <div className="bg-purple-500 rounded-lg p-3 mr-4">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Categories</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.categories}</p>
+              <p className="text-sm font-medium text-slate-600">Categories</p>
+              <p className="text-2xl font-bold text-slate-900">{stats.categories}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <h3 className="text-lg font-semibold text-slate-900 mb-4">Search & Filter</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Search</label>
             <input
               type="text"
               placeholder="Search items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Category</label>
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
@@ -246,19 +250,19 @@ function Inventory() {
           </div>
 
           <div className="flex items-end">
-            <label className="flex items-center">
+            <label className="flex items-center cursor-pointer">
               <input
                 type="checkbox"
                 checked={showLowStock}
                 onChange={(e) => setShowLowStock(e.target.checked)}
-                className="mr-2"
+                className="mr-2 w-4 h-4 text-slate-800 rounded focus:ring-slate-500"
               />
-              <span className="text-sm font-medium text-gray-700">Show Low Stock Only</span>
+              <span className="text-sm font-medium text-slate-700">Show Low Stock Only</span>
             </label>
           </div>
 
           <div className="flex items-end">
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-slate-600 font-medium">
               Showing {filteredItems.length} of {items.length} items
             </span>
           </div>
