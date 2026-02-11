@@ -12,30 +12,31 @@ function SidebarLayout({ children }) {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-slate-50">
       
       {/* Sidebar */}
-      <aside className="w-64 bg-green-700 text-white flex flex-col">
-        <div className="p-6 text-2xl font-bold border-b border-green-600">
-          LocalGro
+      <aside className="w-64 bg-slate-800 text-white flex flex-col shadow-xl">
+        <div className="p-6 border-b border-slate-700">
+          <h1 className="text-2xl font-bold text-white">LocalGro</h1>
+          <p className="text-xs text-slate-400 mt-1">Supply Chain Management</p>
         </div>
 
         {/* User Info */}
         {user && (
-          <div className="px-4 py-3 text-sm border-b border-green-600">
-            <p className="font-semibold">{user.name}</p>
-            <p className="text-green-200 capitalize">{user.role}</p>
+          <div className="px-4 py-3 text-sm border-b border-slate-700 bg-slate-900">
+            <p className="font-semibold text-white">{user.name}</p>
+            <p className="text-slate-400 capitalize text-xs mt-1">{user.role}</p>
           </div>
         )}
 
         {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-1">
             {user &&
                 sidebarMenu[user.role]?.map((item) => (
                 <Link
                     key={item.path}
                     to={item.path}
-                    className="block px-4 py-2 rounded hover:bg-green-600"
+                    className="block px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors text-slate-200 hover:text-white"
                 >
                     {item.label}
                 </Link>
@@ -44,10 +45,10 @@ function SidebarLayout({ children }) {
 
 
         {/* Logout */}
-        <div className="p-4 border-t border-green-600">
+        <div className="p-4 border-t border-slate-700">
           <button
             onClick={handleLogout}
-            className="w-full text-left px-4 py-2 rounded hover:bg-green-600"
+            className="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors text-slate-200 hover:text-white"
           >
             Logout
           </button>
@@ -55,7 +56,7 @@ function SidebarLayout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-8 bg-slate-50">
         {children}
       </main>
     </div>

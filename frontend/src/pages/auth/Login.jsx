@@ -27,11 +27,12 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
+      <div className="max-w-md w-full bg-white rounded-xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-green-700 mb-2">LocalGro</h1>
-          <p className="text-gray-600">Select your role to continue</p>
+          <h1 className="text-3xl font-bold text-slate-800 mb-2">LocalGro SCM</h1>
+          <p className="text-slate-600">Supply Chain Management System</p>
+          <p className="text-sm text-slate-500 mt-2">Select your role to continue</p>
         </div>
 
         <div className="space-y-4">
@@ -54,14 +55,14 @@ function Login() {
 
           <button
             onClick={handleLogin}
-            className="w-full px-6 py-3 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors font-medium"
+            className="w-full px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors font-medium shadow-md"
           >
-            Login
+            Login to System
           </button>
         </div>
 
-        <div className="mt-6 text-xs text-gray-500 text-center">
-          Demo application - No real authentication required
+        <div className="mt-6 text-xs text-slate-500 text-center">
+          LocalGro Supply Chain Management System v1.0
         </div>
       </div>
     </div>

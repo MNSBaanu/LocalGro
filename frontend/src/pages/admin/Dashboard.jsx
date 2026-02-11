@@ -68,21 +68,22 @@ function Dashboard() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
-        <p className="text-gray-600 mt-2">Welcome back, {user?.name}!</p>
+        <h1 className="text-3xl font-bold text-slate-900">{title}</h1>
+        <p className="text-slate-600 mt-2">Welcome back, {user?.name}!</p>
+        <p className="text-sm text-slate-500 mt-1">Supply Chain Overview & Analytics</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md p-6">
+          <div key={index} className="bg-white rounded-xl shadow-md p-6 border border-slate-200 hover:shadow-lg transition-shadow">
             <div className="flex items-center">
-              <div className={`${stat.color} rounded-full p-3 mr-4`}>
+              <div className={`${stat.color} rounded-lg p-3 mr-4`}>
                 <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-600">{stat.label}</p>
-                <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                <p className="text-sm font-medium text-slate-600">{stat.label}</p>
+                <p className="text-2xl font-bold text-slate-900">{stat.value}</p>
               </div>
             </div>
           </div>
@@ -90,38 +91,38 @@ function Dashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+      <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <h2 className="text-xl font-semibold text-slate-900 mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {user?.role === "admin" && (
             <>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">Manage Inventory</h3>
-                <p className="text-sm text-gray-600">Add or update products</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">Manage Inventory</h3>
+                <p className="text-sm text-slate-600 mt-1">Add or update products</p>
               </button>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">View Orders</h3>
-                <p className="text-sm text-gray-600">Process customer orders</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">View Orders</h3>
+                <p className="text-sm text-slate-600 mt-1">Process customer orders</p>
               </button>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">Track Deliveries</h3>
-                <p className="text-sm text-gray-600">Monitor delivery status</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">Track Deliveries</h3>
+                <p className="text-sm text-slate-600 mt-1">Monitor delivery status</p>
               </button>
             </>
           )}
           {user?.role === "customer" && (
             <>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">Browse Products</h3>
-                <p className="text-sm text-gray-600">Find fresh local produce</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">Browse Products</h3>
+                <p className="text-sm text-slate-600 mt-1">Find fresh local produce</p>
               </button>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">Track Orders</h3>
-                <p className="text-sm text-gray-600">Check your order status</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">Track Orders</h3>
+                <p className="text-sm text-slate-600 mt-1">Check your order status</p>
               </button>
-              <button className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left">
-                <h3 className="font-medium text-gray-900">Order History</h3>
-                <p className="text-sm text-gray-600">View past purchases</p>
+              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
+                <h3 className="font-medium text-slate-900">Order History</h3>
+                <p className="text-sm text-slate-600 mt-1">View past purchases</p>
               </button>
             </>
           )}
