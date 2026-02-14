@@ -5,7 +5,7 @@ function InventoryTable({ items, onEdit, onDelete }) {
     } else if (quantity <= minStock * 1.5) {
       return { status: "Medium", color: "text-yellow-600 bg-yellow-100" };
     } else {
-      return { status: "In Stock", color: "text-green-600 bg-green-100" };
+      return { status: "In Stock", color: "text-brand-700 bg-brand-50" };
     }
   };
 
@@ -37,25 +37,25 @@ function InventoryTable({ items, onEdit, onDelete }) {
         <table className="w-full">
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Item Details
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Category
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Stock
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Price
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Supplier
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <th className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">
                 Actions
               </th>
             </tr>
@@ -72,7 +72,7 @@ function InventoryTable({ items, onEdit, onDelete }) {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-md bg-blue-100 text-blue-800">
+                    <span className="inline-flex px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-slate-100 text-slate-600 border border-slate-200">
                       {item.category}
                     </span>
                   </td>

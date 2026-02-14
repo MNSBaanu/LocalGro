@@ -68,9 +68,9 @@ function Dashboard() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">{title}</h1>
-        <p className="text-slate-600 mt-2">Welcome back, {user?.name}!</p>
-        <p className="text-sm text-slate-500 mt-1">Supply Chain Overview & Analytics</p>
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight">{title}</h1>
+        <p className="text-slate-600 mt-2 text-lg">Welcome back, <span className="text-brand-700 font-semibold">{user?.name}</span>!</p>
+        <div className="h-1 w-20 bg-brand-500 mt-4 rounded-full"></div>
       </div>
 
       {/* Stats Grid */}
@@ -96,16 +96,16 @@ function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {user?.role === "admin" && (
             <>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">Manage Inventory</h3>
+              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Manage Inventory</h3>
                 <p className="text-sm text-slate-600 mt-1">Add or update products</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">View Orders</h3>
+              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">View Orders</h3>
                 <p className="text-sm text-slate-600 mt-1">Process customer orders</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">Track Deliveries</h3>
+              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Track Deliveries</h3>
                 <p className="text-sm text-slate-600 mt-1">Monitor delivery status</p>
               </button>
             </>

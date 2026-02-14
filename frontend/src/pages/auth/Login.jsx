@@ -27,7 +27,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-50 to-slate-100">
       <div className="max-w-md w-full bg-white rounded-xl shadow-xl p-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">LocalGro SCM</h1>
@@ -43,7 +43,7 @@ function Login() {
             <select
               value={selectedRole}
               onChange={(e) => setSelectedRole(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             >
               {userRoles.map((role) => (
                 <option key={role.value} value={role.value}>
@@ -55,7 +55,7 @@ function Login() {
 
           <button
             onClick={handleLogin}
-            className="w-full px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors font-medium shadow-md"
+            className="w-full px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-all font-semibold shadow-lg hover:shadow-brand-200/50"
           >
             Login to System
           </button>

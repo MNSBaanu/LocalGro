@@ -75,9 +75,9 @@ function Inventory() {
   const filteredItems = useMemo(() => {
     return items.filter(item => {
       const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           item.supplier.toLowerCase().includes(searchTerm.toLowerCase());
-      
+        item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.supplier.toLowerCase().includes(searchTerm.toLowerCase());
+
       const matchesCategory = !categoryFilter || item.category === categoryFilter;
       const matchesLowStock = !showLowStock || item.quantity <= item.minStock;
 
@@ -163,7 +163,7 @@ function Inventory() {
         </div>
         <button
           onClick={resetForm}
-          className="px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors shadow-md"
+          className="px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-all shadow-lg hover:shadow-brand-200/50 font-semibold"
         >
           + Add New Item
         </button>
@@ -183,9 +183,9 @@ function Inventory() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200 border-l-4 border-l-brand-500">
           <div className="flex items-center">
-            <div className="bg-green-500 rounded-lg p-3 mr-4">
+            <div className="bg-brand-500 rounded-lg p-3 mr-4">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
@@ -231,7 +231,7 @@ function Inventory() {
               placeholder="Search items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             />
           </div>
 
@@ -240,7 +240,7 @@ function Inventory() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
