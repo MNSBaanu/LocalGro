@@ -43,7 +43,7 @@
     }
 
     .glass-dark {
-        @apply bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+        @apply bg-[#0f172a] border border-white/10 shadow-2xl;
     }
 
     .glass-card {
