@@ -13,10 +13,10 @@ function SidebarLayout({ children }) {
   };
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screen">
 
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-800 text-white flex flex-col shadow-xl">
+      <aside className="w-68 glass-dark text-white flex flex-col m-4 mr-0 rounded-3xl overflow-hidden">
         <div className="p-6 border-b border-slate-700/50">
           <h1 className="text-2xl font-bold text-brand-400 tracking-tight">LocalGro</h1>
           <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-1 font-semibold">Supply Chain</p>
@@ -24,7 +24,7 @@ function SidebarLayout({ children }) {
 
         {/* User Info */}
         {user && (
-          <div className="px-4 py-3 text-sm border-b border-slate-700 bg-slate-900">
+          <div className="px-4 py-4 text-sm border-b border-white/5 bg-white/5 backdrop-blur-sm">
             <p className="font-semibold text-white">{user.name}</p>
             <p className="text-slate-400 capitalize text-xs mt-1">{user.role}</p>
           </div>
@@ -40,8 +40,8 @@ function SidebarLayout({ children }) {
                   key={item.path}
                   to={item.path}
                   className={`block px-4 py-3 rounded-lg transition-all duration-200 ${isActive
-                      ? "bg-brand-600 text-white shadow-lg shadow-brand-900/50 font-semibold"
-                      : "text-slate-300 hover:bg-slate-700/50 hover:text-white"
+                    ? "bg-brand-600 text-white shadow-lg shadow-brand-900/50 font-semibold"
+                    : "text-slate-300 hover:bg-slate-700/50 hover:text-white"
                     }`}
                 >
                   {item.label}
@@ -63,7 +63,7 @@ function SidebarLayout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-8 bg-slate-50">
+      <main className="flex-1 p-8 overflow-y-auto">
         {children}
       </main>
     </div>

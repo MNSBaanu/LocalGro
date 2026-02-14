@@ -76,14 +76,14 @@ function Dashboard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-md p-6 border border-slate-200 hover:shadow-lg transition-shadow">
+          <div key={index} className="glass-card p-6">
             <div className="flex items-center">
-              <div className={`${stat.color} rounded-lg p-3 mr-4`}>
+              <div className={`${stat.color} rounded-xl p-3 mr-4 shadow-lg shadow-${stat.color.split('-')[1]}-200/50`}>
                 <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-600">{stat.label}</p>
-                <p className="text-2xl font-bold text-slate-900">{stat.value}</p>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{stat.label}</p>
+                <p className="text-3xl font-bold text-slate-900 mt-1">{stat.value}</p>
               </div>
             </div>
           </div>
@@ -91,37 +91,55 @@ function Dashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
-        <h2 className="text-xl font-semibold text-slate-900 mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="glass-card p-8">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6 font-display">Quick Actions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {user?.role === "admin" && (
             <>
-              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
-                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Manage Inventory</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">📦</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700">Manage Inventory</h3>
                 <p className="text-sm text-slate-600 mt-1">Add or update products</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
-                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">View Orders</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">🛒</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700">View Orders</h3>
                 <p className="text-sm text-slate-600 mt-1">Process customer orders</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-xl hover:bg-brand-50 hover:border-brand-200 text-left transition-all group">
-                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Track Deliveries</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">🚚</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700">Track Deliveries</h3>
                 <p className="text-sm text-slate-600 mt-1">Monitor delivery status</p>
               </button>
             </>
           )}
           {user?.role === "customer" && (
             <>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">Browse Products</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">🔍</span>
+                </div>
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Browse Products</h3>
                 <p className="text-sm text-slate-600 mt-1">Find fresh local produce</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">Track Orders</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">📍</span>
+                </div>
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Track Orders</h3>
                 <p className="text-sm text-slate-600 mt-1">Check your order status</p>
               </button>
-              <button className="p-4 border-2 border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 text-left transition-all">
-                <h3 className="font-medium text-slate-900">Order History</h3>
+              <button className="p-6 bg-white/50 border border-white/40 rounded-2xl hover:bg-brand-50/50 hover:border-brand-200 text-left transition-all group shadow-sm hover:shadow-md">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                  <span className="text-xl">📜</span>
+                </div>
+                <h3 className="font-bold text-slate-900 group-hover:text-brand-700">Order History</h3>
                 <p className="text-sm text-slate-600 mt-1">View past purchases</p>
               </button>
             </>

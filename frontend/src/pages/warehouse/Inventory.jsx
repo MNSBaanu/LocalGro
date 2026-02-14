@@ -171,14 +171,14 @@ function Inventory() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <div className="glass-card p-6 border-l-4 border-l-blue-500">
           <div className="flex items-center">
-            <div className="bg-blue-500 rounded-lg p-3 mr-4">
+            <div className="bg-blue-500 rounded-xl p-3 mr-4 shadow-lg shadow-blue-200/50">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-600">Total Items</p>
-              <p className="text-2xl font-bold text-slate-900">{stats.totalItems}</p>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Items</p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.totalItems}</p>
             </div>
           </div>
         </div>
@@ -195,52 +195,52 @@ function Inventory() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <div className="glass-card p-6 border-l-4 border-l-red-500">
           <div className="flex items-center">
-            <div className="bg-red-500 rounded-lg p-3 mr-4">
+            <div className="bg-red-500 rounded-xl p-3 mr-4 shadow-lg shadow-red-200/50">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-600">Low Stock</p>
-              <p className="text-2xl font-bold text-slate-900">{stats.lowStockItems}</p>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Low Stock</p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.lowStockItems}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
+        <div className="glass-card p-6 border-l-4 border-l-purple-500">
           <div className="flex items-center">
-            <div className="bg-purple-500 rounded-lg p-3 mr-4">
+            <div className="bg-purple-500 rounded-xl p-3 mr-4 shadow-lg shadow-purple-200/50">
               <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-600">Categories</p>
-              <p className="text-2xl font-bold text-slate-900">{stats.categories}</p>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Categories</p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.categories}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
-        <h3 className="text-lg font-semibold text-slate-900 mb-4">Search & Filter</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="glass-card p-6">
+        <h3 className="text-lg font-bold text-slate-900 mb-4 font-display">Search & Filter</h3>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Search</label>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Search</label>
             <input
               type="text"
               placeholder="Search items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Category</label>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Category</label>
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
@@ -249,20 +249,20 @@ function Inventory() {
             </select>
           </div>
 
-          <div className="flex items-end">
-            <label className="flex items-center cursor-pointer">
+          <div className="flex items-end pb-2">
+            <label className="flex items-center cursor-pointer group">
               <input
                 type="checkbox"
                 checked={showLowStock}
                 onChange={(e) => setShowLowStock(e.target.checked)}
-                className="mr-2 w-4 h-4 text-slate-800 rounded focus:ring-slate-500"
+                className="mr-3 w-5 h-5 text-brand-600 rounded-lg border-slate-300 focus:ring-brand-500 transition-all"
               />
-              <span className="text-sm font-medium text-slate-700">Show Low Stock Only</span>
+              <span className="text-sm font-bold text-slate-600 group-hover:text-slate-900 transition-colors">Show Low Stock Only</span>
             </label>
           </div>
 
-          <div className="flex items-end">
-            <span className="text-sm text-slate-600 font-medium">
+          <div className="flex items-end justify-end pb-3">
+            <span className="text-xs font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
               Showing {filteredItems.length} of {items.length} items
             </span>
           </div>
