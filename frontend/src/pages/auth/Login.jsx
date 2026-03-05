@@ -37,7 +37,7 @@ function Login() {
           <div className="w-20 h-20 bg-brand-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-brand-200 rotate-3">
             <span className="text-4xl text-white font-bold">L</span>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-2 font-display tracking-tight">LocalGro SCM</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 font-display tracking-tight">LocalGro</h1>
           <p className="text-slate-500 font-medium">Next-Gen Supply Chain Solutions</p>
         </div>
 
