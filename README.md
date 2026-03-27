@@ -1,161 +1,156 @@
 # LocalGro
 
-LocalGro is a supply chain and warehouse management system designed to support the jackfruit processing and distribution industry in Sri Lanka.  
-The system integrates inventory management, order processing, delivery tracking, and basic financial operations into a single centralized platform.
+LocalGro is a frontend prototype for a Sri Lankan fresh produce supply chain platform. The current application focuses on a role-based React interface for browsing the product experience, signing in as different user types, and exploring core dashboards for inventory, orders, deliveries, and customer ordering flows.
 
-This project is developed using the **MERN stack** and follows an **Agile, incremental development approach**, starting with a Minimum Viable Product (MVP).
+## Current Status
 
----
+This repository currently contains the frontend application only. There is no backend API, database, or persistent authentication yet. All data is mock data stored in React state for demonstration purposes.
+
+Implemented today:
+
+- Public landing page for the LocalGro brand
+- Demo login with selectable roles
+- Protected routes backed by in-memory auth context
+- Shared sidebar layout for authenticated users
+- Role-aware dashboard content
+- Inventory CRUD UI with search, category filtering, and low-stock filtering
+- Orders and delivery placeholder screens
+- Customer order placement flow using local component state
 
 ## Tech Stack
-- **Frontend:** React.js + Tailwind CSS
-- **Backend:** Node.js + Express.js (to be implemented in later phases)
-- **Database:** MongoDB (to be implemented in later phases)
-- **Architecture:** Modular, role-based system design
 
----
+- React 19
+- React Router 7
+- Vite 7
+- Tailwind CSS 4
+- ESLint 9
 
-## Development Methodology
-- Agile (Incremental Development)
-- MVP-first approach
-- Frontend-first development
-- Each phase builds on the previous one
-- Clear separation of concerns (UI, logic, data)
+## Project Structure
 
----
+```text
+LocalGro/
+|-- README.md
+`-- frontend/
+    |-- package.json
+    |-- src/
+    |   |-- components/
+    |   |-- context/
+    |   |-- layouts/
+    |   |-- pages/
+    |   |-- routes/
+    |   `-- services/
+    `-- vite.config.js
+```
 
-## MVP Scope (Locked)
+## Available Pages
 
-The following modules are included in the MVP:
+Public routes:
 
-1. Authentication & User Management  
-2. Inventory Management  
-3. Order Management  
-4. Delivery Management  
-5. Finance & Invoicing (Basic)
+- `/home` - marketing landing page
+- `/login` - demo role selector
 
-Advanced features such as analytics, AI, and sustainability dashboards are planned for future iterations.
+Protected routes:
 
----
+- `/dashboard` - role-specific dashboard
+- `/inventory` - inventory management screen
+- `/orders` - orders management screen
+- `/deliveries` - deliveries screen
+- `/my-orders` - customer ordering screen
 
-## User Roles
+## Demo Roles
+
+The login screen lets you enter the app as:
+
 - Admin
 - Warehouse Manager
-- Delivery Staff
-- Finance Staff
+- Delivery Personnel
+- Finance Manager
 - Customer
+- Guest
 
-Each role has clearly defined system access and responsibilities.
+Notes:
 
----
+- `Guest` returns to the public home page without creating a session.
+- Authenticated roles are stored only in React state, so refreshing the browser clears the session.
+- The dashboard content changes by role, but route authorization is currently basic and does not enforce fine-grained permissions yet.
 
-## System Screen List (MVP)
+## Key Frontend Features
 
-### Common Screens (All Users)
-- Login
-- Register
-- Forgot Password
-- Dashboard
-- View Profile
-- Update Profile
-- Logout
+### Landing Page
 
-### Admin Screens
-- Admin Dashboard
-- Manage Users
-- Inventory Overview
-- Orders Overview
-- Delivery Overview
-- System Settings
-- Reports (Basic)
+- Branded home page focused on fresh produce and local farm sourcing
+- Feature, category, product, and mission sections
+- Entry point into the demo login flow
 
-### Warehouse Manager Screens
-- Warehouse Dashboard
-- Add Inventory
-- Update Inventory
-- View Inventory List
-- View Incoming Orders
-- Update Order Status
-- Low Stock Alerts
+### Authentication
 
-### Delivery Staff Screens
-- Delivery Dashboard
-- View Assigned Deliveries
-- Delivery Details
-- Update Delivery Status
-- Delivery History
+- Context-based auth provider
+- Protected route wrapper redirects unauthenticated users to `/login`
+- Role selection is simulated instead of using credentials
 
-### Finance Staff Screens
-- Finance Dashboard
-- Generate Invoice
-- View Invoices
-- Update Payment Status
-- Payment History
+### Dashboard
 
-### Customer Screens
-- Customer Dashboard
-- Browse Products
-- View Product Details
-- Place Order
-- Order History
-- Track Order
-- View Invoice
+- Reusable dashboard page that renders different metrics by role
+- Shared sidebar navigation driven by the logged-in user's role
 
----
+### Inventory Management
 
-## Project Phases
+- Seeded inventory items with category, stock, supplier, and pricing data
+- Add and edit inventory items through a form
+- Delete inventory items
+- Search by item name, category, or supplier
+- Category filter and low-stock toggle
+- Inventory summary cards for totals, value, low stock, and category count
 
-### Phase 1 – System Planning & UI Design (Current Phase)
-- Finalize MVP scope
-- Identify system screens
-- Choose frontend stack (React + Tailwind CSS)
-- Define frontend folder structure
-- Prepare project documentation
+### Orders and Deliveries
 
-### Phase 2 – Frontend Setup & Layout
-- Create React project
-- Configure Tailwind CSS
-- Setup routing
-- Build common layout components
+- Orders management table with sample order data
+- Delivery page scaffold ready for expansion
+- Customer ordering page that creates temporary orders in memory
 
-### Phase 3 – Frontend Feature Screens
-- Build role-based pages
-- Implement forms and UI flows
-- Use mock/dummy data
-- Validate user flows
+## Running the Project
 
-### Phase 4 – Backend Development
-- Setup Node.js & Express
-- Design MongoDB schemas
-- Implement REST APIs
-- Authentication & authorization
+Prerequisites:
 
-### Phase 5 – Frontend–Backend Integration
-- Connect APIs
-- Handle real data
-- Error handling
-- Loading & state management
+- Node.js 20+ recommended
+- npm
 
-### Phase 6 – Testing & Refinement
-- Functional testing
-- Role-based access testing
-- UI/UX improvements
-- Documentation updates
+Install and start the frontend:
 
----
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## How to Use This Repository
-- Each phase builds incrementally
-- README is updated at the end of every phase
-- New contributors can understand the project by reading this file
-- Code structure follows professional MERN standards
+Then open the local Vite URL shown in the terminal, typically `http://localhost:5173`.
 
----
+Other useful commands:
 
-## Status
-🟡 Phase 1 – In Progress
+```bash
+cd frontend
+npm run build
+npm run preview
+npm run lint
+```
 
----
+## Current Limitations
 
-## Maintained By
+- No backend or database integration
+- No persistent login session
+- No real role-based access enforcement beyond menu visibility and shared routing
+- Orders, deliveries, and finance flows are still partial
+- Data resets on refresh
+
+## Next Logical Steps
+
+- Add backend services for authentication, inventory, orders, and deliveries
+- Persist user sessions
+- Enforce role-based route authorization
+- Replace mock data with API-driven state
+- Expand delivery and finance modules
+- Add tests for core user flows
+
+## Maintainer
+
 LocalGro Developer
