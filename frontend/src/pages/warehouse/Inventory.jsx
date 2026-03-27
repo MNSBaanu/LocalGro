@@ -7,42 +7,62 @@ function Inventory() {
   const [items, setItems] = useState([
     {
       id: 1,
-      name: "Dried Jackfruit Pack",
-      category: "Dried Fruits",
-      quantity: 120,
-      price: 850,
-      minStock: 20,
-      supplier: "Local Farm Co.",
-      lastUpdated: new Date().toISOString(),
-    },
-    {
-      id: 2,
-      name: "Raw Jackfruit",
+      name: "Banana",
       category: "Fresh Fruits",
-      quantity: 45,
-      price: 300,
-      minStock: 10,
+      quantity: 300,
+      price: 80,
+      minStock: 50,
       supplier: "Green Valley Farm",
       lastUpdated: new Date().toISOString(),
     },
     {
+      id: 2,
+      name: "Mango",
+      category: "Fresh Fruits",
+      quantity: 12,
+      price: 250,
+      minStock: 30,
+      supplier: "Tropical Harvest Co.",
+      lastUpdated: new Date().toISOString(),
+    },
+    {
       id: 3,
-      name: "Coconut Oil",
-      category: "Oils",
-      quantity: 8,
-      price: 1200,
-      minStock: 15,
-      supplier: "Pure Coconut Ltd",
+      name: "Carrot",
+      category: "Vegetables",
+      quantity: 180,
+      price: 120,
+      minStock: 40,
+      supplier: "Hill Country Farms",
       lastUpdated: new Date().toISOString(),
     },
     {
       id: 4,
-      name: "Organic Rice",
-      category: "Grains",
-      quantity: 200,
-      price: 180,
+      name: "Tomato",
+      category: "Vegetables",
+      quantity: 8,
+      price: 150,
       minStock: 50,
       supplier: "Organic Farms",
+      lastUpdated: new Date().toISOString(),
+    },
+    {
+      id: 5,
+      name: "Dried Mango Slices",
+      category: "Dried Fruits",
+      quantity: 95,
+      price: 650,
+      minStock: 20,
+      supplier: "SunDry Products",
+      lastUpdated: new Date().toISOString(),
+    },
+    {
+      id: 6,
+      name: "Pineapple",
+      category: "Fresh Fruits",
+      quantity: 60,
+      price: 200,
+      minStock: 15,
+      supplier: "Tropical Harvest Co.",
       lastUpdated: new Date().toISOString(),
     },
   ]);
@@ -163,84 +183,51 @@ function Inventory() {
         </div>
         <button
           onClick={resetForm}
-          className="px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-all shadow-lg hover:shadow-brand-200/50 font-semibold"
+          className="px-5 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-black transition-colors text-sm font-semibold"
         >
           + Add New Item
         </button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="glass-card p-6 border-l-4 border-l-blue-500">
-          <div className="flex items-center">
-            <div className="bg-blue-500 rounded-xl p-3 mr-4 shadow-lg shadow-blue-200/50">
-              <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Items</p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.totalItems}</p>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Total Items</p>
+          <p className="text-2xl font-bold text-gray-900 mt-2">{stats.totalItems}</p>
         </div>
-
-        <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200 border-l-4 border-l-brand-500">
-          <div className="flex items-center">
-            <div className="bg-brand-500 rounded-lg p-3 mr-4">
-              <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-slate-600">Total Value</p>
-              <p className="text-2xl font-bold text-slate-900">LKR {stats.totalValue.toLocaleString()}</p>
-            </div>
-          </div>
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Total Value</p>
+          <p className="text-2xl font-bold text-gray-900 mt-2">LKR {stats.totalValue.toLocaleString()}</p>
         </div>
-
-        <div className="glass-card p-6 border-l-4 border-l-red-500">
-          <div className="flex items-center">
-            <div className="bg-red-500 rounded-xl p-3 mr-4 shadow-lg shadow-red-200/50">
-              <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Low Stock</p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.lowStockItems}</p>
-            </div>
-          </div>
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Low Stock</p>
+          <p className="text-2xl font-bold text-gray-900 mt-2">{stats.lowStockItems}</p>
         </div>
-
-        <div className="glass-card p-6 border-l-4 border-l-purple-500">
-          <div className="flex items-center">
-            <div className="bg-purple-500 rounded-xl p-3 mr-4 shadow-lg shadow-purple-200/50">
-              <div className="w-6 h-6 bg-white rounded-full opacity-30"></div>
-            </div>
-            <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Categories</p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">{stats.categories}</p>
-            </div>
-          </div>
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Categories</p>
+          <p className="text-2xl font-bold text-gray-900 mt-2">{stats.categories}</p>
         </div>
       </div>
 
       {/* Search and Filters */}
-      <div className="glass-card p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4 font-display">Search & Filter</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Search</label>
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Search</label>
             <input
               type="text"
               placeholder="Search items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 text-sm"
             />
           </div>
-
           <div>
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Category</label>
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Category</label>
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 text-sm"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
@@ -248,23 +235,19 @@ function Inventory() {
               ))}
             </select>
           </div>
-
-          <div className="flex items-end pb-2">
-            <label className="flex items-center cursor-pointer group">
+          <div className="flex items-end">
+            <label className="flex items-center cursor-pointer">
               <input
                 type="checkbox"
                 checked={showLowStock}
                 onChange={(e) => setShowLowStock(e.target.checked)}
-                className="mr-3 w-5 h-5 text-brand-600 rounded-lg border-slate-300 focus:ring-brand-500 transition-all"
+                className="mr-2 w-4 h-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
               />
-              <span className="text-sm font-bold text-slate-600 group-hover:text-slate-900 transition-colors">Show Low Stock Only</span>
+              <span className="text-sm text-gray-700">Low Stock Only</span>
             </label>
           </div>
-
-          <div className="flex items-end justify-end pb-3">
-            <span className="text-xs font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
-              Showing {filteredItems.length} of {items.length} items
-            </span>
+          <div className="flex items-end justify-end">
+            <span className="text-xs text-gray-500">{filteredItems.length} of {items.length} items</span>
           </div>
         </div>
       </div>
