@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/auth/Login";
+import Home from "./pages/home/Home";
 import Dashboard from "./pages/admin/Dashboard";
 import Inventory from "./pages/warehouse/Inventory";
 import Orders from "./pages/finance/Orders";
@@ -15,10 +16,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Redirect root to login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        
+        {/* Root goes to home page */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+
         {/* Public */}
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
 
         {/* Admin / Warehouse */}

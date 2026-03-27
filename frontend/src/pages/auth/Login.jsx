@@ -13,10 +13,17 @@ function Login() {
     { value: "delivery", label: "Delivery Personnel", name: "Delivery User" },
     { value: "finance", label: "Finance Manager", name: "Finance User" },
     { value: "customer", label: "Customer", name: "Customer User" },
+    { value: "guest", label: "Guest", name: "Guest User" },
   ];
 
   const handleLogin = () => {
     const selectedUser = userRoles.find(role => role.value === selectedRole);
+
+    if (selectedRole === "guest") {
+      navigate("/home");
+      return;
+    }
+
     login({ name: selectedUser.name, role: selectedRole });
     navigate("/dashboard");
   };
@@ -74,7 +81,7 @@ function Login() {
               onClick={handleLogin}
               className="w-full px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-black transition-colors text-sm font-semibold"
             >
-              Continue
+              {selectedRole === "guest" ? "Browse as Guest →" : "Continue"}
             </button>
           </div>
         </div>
